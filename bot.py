@@ -52,7 +52,7 @@ def address_balance(address):
 def worker(event):
     while not event.isSet():
         if users_addr:
-            for key, value in users_addr.items():
+            for key, value in list(users_addr.items()):
                 address = str(value)[2:-2]
                 df = address_balance(address)
 
