@@ -6,10 +6,10 @@ import os.path
 
 url = "https://api.covalenthq.com"
 chain_id = "1"
-my_key = "ckey_5899fef593a94713b1265f9382f"
+my_key = "YOUR_COVALENT_API_KEY"
 
 # CovalentBot
-telegramm_token = "1746486927:AAFq0l2GoiDDigJr47XJooF2VRQR3zXOcU8"
+telegramm_token = "YOUR TELEGRAM_BOT_TOKEN"
 
 bot = telebot.TeleBot(telegramm_token)
 
@@ -19,23 +19,6 @@ keyboard1.row('Add adr', 'Show adr', 'Del adr')
 users_addr = {}
 
 
-# #result = requests.get("https://api.covalenthq.com/v1/1/tokens/0xe4605d46fd0b3f8329d936a8b258d69276cba264/nft_metadata/123/?&key=ckey_5899fef593a94713b1265f9382f")
-# #result = requests.get("https://api.covalenthq.com/v1/1/tokens/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/nft_metadata/8898/?&key=ckey_5899fef593a94713b1265f9382f")
-# result = requests.get("https://api.covalenthq.com/v1/1/tokens/0x495f947276749ce646f68ac8c248420045cb7b5e/nft_metadata/72199953155303117848911208421821264095563948581919614769444559099565470384129/?&key=ckey_5899fef593a94713b1265f9382f")
-# result = result.json()
-# None
-
-
-# df = pd.read_pickle('1')
-# df.to_csv("1.csv", index=False)
-# df2 = pd.read_csv('1.csv')
-# df3 = pd.read_csv('3.csv')
-# result = pd.concat([df2, df3]).drop_duplicates(keep=False)
-# print(df2)
-# print(df3)
-# print(result)
-# if result is not None:
-#     print('a')
 
 def address_balance(address):
     get_token_balances_for_address = f"/v1/{chain_id}/address/{address}/balances_v2/"
