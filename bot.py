@@ -15,7 +15,7 @@ bot = telebot.TeleBot(telegramm_token)
 
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True, True)
 keyboard1.row('💰Balance', 'Show NFT image')
-keyboard1.row('Add adr', 'Show adr', 'Del adr')
+keyboard1.row('Add adr', 'Show adr', 'Edit adr', 'Del adr')
 users_addr = {}
 
 
@@ -85,6 +85,15 @@ def send_text(message):
     elif message.text == 'Add adr':
         bot.send_message(message.chat.id, text='Input your Eth address:')
         bot.register_next_step_handler(message, add_adr)
+        
+    elif message.text == 'Edit adr':
+        chat_id = message.chat.id
+        if chat_id in users_addr:
+            del users_addr[chat_id]
+            bot.send_message(message.chat.id, text='Input new Eth address:')
+            bot.register_next_step_handler(message, add_adr)   
+        else:
+            bot.send_message(message.chat.id, text='You do not have Eth address to edit.')    
 
     elif message.text == 'Del adr':
         chat_id = message.chat.id
